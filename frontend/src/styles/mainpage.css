@@ -1,0 +1,88 @@
+.holdsAll{
+  background-color:black;
+}
+
+h1{
+  color:white;
+  text-align: center;
+}
+
+p{
+  border:1px solid #665544;
+  background-color:#D3D3D3;
+  background-color:hsla(0,100%,100%,.5);
+  padding:10px;
+  margin:15px;
+  /* padding:inherit; */
+}
+
+input{
+  padding:10px;
+  margin:15px;
+  height: 150px;
+  width: 90%;
+  font-size:20px;
+  /* background-color: */
+  /* background-image:; */
+}
+
+button{
+  padding:10px;
+  margin:15px;
+}
+/* ---------------thereafter------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  border:white 3em;
+}
+
+.full {
+  height: 100%;
+}
+
+.col {
+  width: 8.3333%;
+  min-height: 1500px;
+  padding: 80px;
+}
+
+.col-4 {
+  width: calc(4 * 8.3333%);
+}
+
+.col-8 {
+  width: calc(8 * 8.3333%);
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+  
+}
+
+.red {
+  background-color: red;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.black {
+  background-color: black;
+}
