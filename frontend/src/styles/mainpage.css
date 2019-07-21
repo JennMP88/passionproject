@@ -27,8 +27,8 @@ p{
   /* padding:inherit; */
 }
 
-input{
-  padding:10px;
+textarea{
+  /* padding:10px; */
   margin:15px;
   height: 150px;
   width: 90%;
