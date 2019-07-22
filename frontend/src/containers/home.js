@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import firebase from '../firebase';
 import axios from 'axios';
-import '../styles/opening.css';
 
-const openingPic = require('../assets/tv.jpg')
-
-class Opening extends React.Component {
+export default class Home extends React.Component {
 
   state = {
     userEmail: '',
@@ -59,33 +56,23 @@ class Opening extends React.Component {
       console.log(data);
     })
   }
-  
 
   render() {
     const { userEmail, userId } = this.state;
 
     if (userEmail === '') {
       return <h1>You're not logged in</h1>
-    } else {
+    }
+    else {
       return (
         <>
-          <div className='row'>
-            <div className='col col-8'>
-              <img src={openingPic} alt="..." height="400" width="400" />
-            </div>
-
-            <div className='col col-4'>
-              
-         <h1>Welcome back, {userEmail}</h1>
+          <h2>Welcome back, {userEmail}</h2>
           <h4>Your ID is: {userId}</h4>
           <button onClick={this.handleUnprotectedAPI}>Unprotected API Invokation</button>
-          <button onClick={this.handleProtectedAPI}>Protected API</button> 
-            </div>
-          </div>
+          <button onClick={this.handleProtectedAPI}>Protected API</button>
         </>
       )
     }
   }
 }
 
-export default Opening;

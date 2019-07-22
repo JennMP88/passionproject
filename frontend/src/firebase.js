@@ -1,15 +1,15 @@
-// import app from 'firebase/app';
-// import 'firebase/auth';
+import app from 'firebase/app';
+import 'firebase/auth';
 
-// const config = {
-//   apiKey: "AIzaSyDnX-V1IEQDlgNv1XwraQA9jXi3pE8Yomk",
-//   authDomain: "dumb-uploader.firebaseapp.com",
-//   databaseURL: "https://dumb-uploader.firebaseio.com",
-//   projectId: "dumb-uploader",
-//   storageBucket: "dumb-uploader.appspot.com",
-//   messagingSenderId: "370924651634"
-// };
+const config = {
+  apiKey: "AIzaSyDUewjZ0CBYFeisbnJmas06Ly0eq2zpSz8",
+  authDomain: "mypassionproject-db093.firebaseapp.com",
+  databaseURL: "https://mypassionproject-db093.firebaseio.com",
+  projectId: "mypassionproject-db093",
+  storageBucket: "",
+  messagingSenderId: "371922667171",
+};
 
-// app.initializeApp(config);
+app.initializeApp(config);
 
-// export default app;
+export default app;
