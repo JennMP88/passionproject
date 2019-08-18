@@ -7,34 +7,49 @@ class Opening extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      email:'',
+      password:''
     }
   }
 
+handleEmailInput=(e)=>{
+    this.setState({ email: e.target.value })
+}
 
-  submitButton=(e)=>{
-    
+handlePasswordInput=(e)=>{
+  this.setState({ password: e.target.value })
+}
+
+loginButton=(e)=>{
+  this.setState({ [e.target.email]: e.target.value },()=>{
+        localStorage.setItem('email', this.state.email)
+      });
+      
   }
+
   render() {
+    console.log('emailing',this.state.email)
     return (
       <>
-        <form class="wrapper ">
+        <form className="wrapper ">
           <div className="boxme">
-            <div className="form-group ">
-              <label for="exampleDropdownFormEmail2">Email address</label>
-              <input type="email" className="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com" />
-            </div>
             <div className="form-group">
-              <label for="exampleDropdownFormPassword2">Password</label>
-              <input type="password" className="form-control" id="exampleDropdownFormPassword2" placeholder="Password" />
+              <label htmlFor="exampleDropdownFormEmail2">Email address</label>
+              <input type="email" value={this.state.email} className="form-control"  onChange={this.handleEmailInput} placeholder="email@example.com" />
             </div>
+
+            <div className="form-group">
+              <label htmlFor="exampleDropdownFormPassword2">Password</label>
+              <input type="password" value={this.state.password} className="form-control" onChange={this.handlePasswordInput} placeholder="Password" />
+            </div>
+
             <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="dropdownCheck2" />
-              <label className="form-check-label" for="dropdownCheck2">
+              <input type="checkbox" className="form-check-input"  />
+              <label className="form-check-label" htmlFor="dropdownCheck2">
                 Remember me
             </label>
             </div>
-            <button type="button" className="btn btn-dark">Sign in</button>
+            <button type="button" onClick={this.loginButton} className="btn btn-dark">Sign in</button>
             <button type="button" className="btn btn-dark">Register</button>
           </div>
         </form>
