@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import firebase from 'firebase';
+import { Redirect, withRouter } from 'react-router-dom';
 // const prayinghands = require('../assets/prayinghands.jpg')
 
 class Mainpage extends React.Component {
@@ -35,20 +37,30 @@ class Mainpage extends React.Component {
       this.setState({prayers, inputText:''})
       
     })
-
-    // this.setState({ prayers, inputText: '' })
     
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:8080/stories')
-      .then(res => {
-        const prayers=res.data;
-        this.setState({prayers})
+  // componentDidMount() {
+  //   axios.get('http://localhost:8080/stories')
+  //     .then(res => {
+  //       const prayers=res.data;
+  //       this.setState({prayers})
         
-      })
+  //     })
+  // }
+
+  componentDidMount() {
+    this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // ..... DO YOUR LOGGED IN LOGIC
+        this.props.history.push('/')
+      }
+      else {
+        this.props.history.push('/opening')
+        // ..... The user is logged out
+      }
+    })
   }
-     
 
   render() {
     const { prayers, inputText } = this.state
@@ -92,4 +104,4 @@ class Mainpage extends React.Component {
   }
 }
 
-export default Mainpage;
+export default withRouter(Mainpage);
