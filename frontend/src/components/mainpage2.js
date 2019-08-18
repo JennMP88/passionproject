@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import firebase from 'firebase';
 import { Redirect, withRouter } from 'react-router-dom';
-// const prayinghands = require('../assets/prayinghands.jpg')
 
 class Mainpage extends React.Component {
   constructor(props) {
@@ -40,14 +39,14 @@ class Mainpage extends React.Component {
     
   }
 
-  // componentDidMount() {
-  //   axios.get('http://localhost:8080/stories')
-  //     .then(res => {
-  //       const prayers=res.data;
-  //       this.setState({prayers})
+  componentDidMount() {
+    axios.get('http://localhost:8080/stories')
+      .then(res => {
+        const prayers=res.data;
+        this.setState({prayers})
         
-  //     })
-  // }
+      })
+  }
 
   componentDidMount() {
     this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
@@ -90,7 +89,7 @@ class Mainpage extends React.Component {
               return (
                 <>
                 <p>{e.stories_displayed}</p>
-                <hr class="my-4"></hr>
+                <hr className="my-4"></hr>
                 </>
               )
       

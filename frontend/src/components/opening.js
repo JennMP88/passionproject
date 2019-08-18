@@ -18,6 +18,8 @@ class Opening extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+ 
+
   handleLogin = (e) => {
     e.preventDefault();
 
