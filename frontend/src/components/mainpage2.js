@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const prayinghands = require('../assets/prayinghands.jpg')
+// const prayinghands = require('../assets/prayinghands.jpg')
 
 class Mainpage extends React.Component {
   constructor(props) {

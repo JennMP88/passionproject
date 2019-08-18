@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {Route, HashRouter } from "react-router-dom";
 import Header from './components/header';
+import Opening from '../src/components/opening';
 import Mainpage from '../src/components/mainpage2';
 
-
-
-// import PostComment from '../src/components/postcomment'
 
 
 class App extends React.Component {
@@ -15,10 +13,11 @@ class App extends React.Component {
     
     <HashRouter>
     <>
-      
-    <Route path='/' component={ Header } />
+    <Route path ="/opening" exact component={Opening}/>
+    {/* <Route path='/' component={ Header } /> */}
     <div className='container mt-5'>
-    <Route path ="/mainpage" exact component={Mainpage}/>
+    {/* <Route path ="/opening" exact component={Opening}/> */}
+    <Route path ="/" exact component={Mainpage}/>
     </div>
     </>
     </HashRouter>
