@@ -20,7 +20,6 @@ class Mainpage extends React.Component {
   onSubmitClicker = async (e)=>{
     e.preventDefault();
     const {prayers,inputText}=this.state;    
-    console.log('this is clicking',e.target.value)
 
     await axios({
       method:'post',
@@ -39,26 +38,22 @@ class Mainpage extends React.Component {
     
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:8080/stories')
-      .then(res => {
-        const prayers=res.data;
-        this.setState({prayers})
-        
-      })
-  }
-
+  
   componentDidMount() {
     this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        // ..... DO YOUR LOGGED IN LOGIC
         this.props.history.push('/')
       }
       else {
         this.props.history.push('/opening')
-        // ..... The user is logged out
       }
     })
+    axios.get('http://localhost:8080/stories')
+    .then(res => {
+      const prayers = res.data;
+      this.setState({prayers})
+      
+    }) 
   }
 
   render() {
